@@ -1,0 +1,38 @@
+{{form_start(f)}}
+{{form_end(f)}}
+
+<table border="3">
+    <tr>
+        <td>id</td>
+        <td>title</td>
+        <td>category</td>
+        <td>publicationDate</td>
+        <td>published</td>
+        <td>author</td>
+        <td>authornbofbooks</td>
+        <td>action</td>
+        <td>action</td>
+    </tr>
+    {% for i in book %}
+    <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.title}}</td>
+        <td>{{i.category}}</td>
+        <td>{{i.publicationDate|date('Y-m-d H:i:s')}}</td>
+        <td>{{i.published}}</td>
+        <td>{{i.book}}</td>
+        <td>{{i.book}}</td>
+        <td><a href="{{path('editbook',{'id':i.id})}}">edit</a></td>
+        <td><a href="{{path('deletbook',{'id':i.id})}}">delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<div>
+    <p>{{ 'published books ' ~ publishedCount['publishedCount'] }}</p>
+    <p>{{ 'non published books ' ~ publishedCount['nonPublishedCount'] }}</p>
+    <p>Number of Science Fiction books: {{ scienceFictionSomme }}</p>
+
+
+</div>
+
+
